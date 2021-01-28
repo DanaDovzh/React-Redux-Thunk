@@ -1,15 +1,21 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getUsers } from '../../store/action/actionUser';
 import { Card } from 'react-bootstrap';
 
 import './users-page.sass';
 
 const UsersPage = () => {
-    const users = useSelector(state => state.rootReducerUser.users)
+    const dispatch = useDispatch();
+    const users = useSelector(state => state.rootReducerUser.users.data);
+
+    useEffect(() => {
+        dispatch(getUsers())
+    }, [])
     return (
         <div className='users-page'>
             {
-                users.map((user) => {
+                users.reverse().map((user) => {
                     return (
                         <Card className='card-user'>
                             <Card.Img

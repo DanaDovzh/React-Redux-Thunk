@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getUsers } from '../../store/action/actionTweets';
+import { getUsers } from '../../store/action/actionUser';
 
 import './add-tweet.sass';
 
 function FormAddTweet() {
-    const usersAll = useSelector(state => state.rootReducerTweets.usersAll.data);
+    const usersAll = useSelector(state => state.rootReducerUser.users.data);
     const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [content, setContent] = useState('');
@@ -16,7 +16,7 @@ function FormAddTweet() {
     const [isLink, setIsLink] = useState(false);
     const [result, setResult] = useState(true);
 
-        const users = Array.from(new Set(usersAll.map(user => [user.name, user.id])));
+    const users = Array.from(new Set(usersAll.map(user => [user.name, user.id])));
     const handlerAuthor = (e) => {
         setName(e.target.value);
         setUserId(e.target.selectedIndex);

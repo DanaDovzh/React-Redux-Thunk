@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTweets, getUsers } from '../../store/action/actionTweets';
+import { getTweets } from '../../store/action/actionTweets';
+import { getUsers } from '../../store/action/actionUser';
 import { Card, Container, Row, Col, Image } from 'react-bootstrap';
 
 import './tweet-page.sass';
@@ -8,13 +9,13 @@ import './tweet-page.sass';
 function TweetsPage() {
     const dispatch = useDispatch();
     const tweets = useSelector(state => state.rootReducerTweets.tweets.data);
-    const usersAll = useSelector(state => state.rootReducerTweets.usersAll.data);
+    const usersAll = useSelector(state => state.rootReducerUser.users.data);
 
     useEffect(() => {
         dispatch(getTweets());
         dispatch(getUsers());
     }, []);
-
+    console.log(tweets)
     return (
         <div className='tweets'>
             {tweets.map(tweet => {

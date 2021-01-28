@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
-
-import { addUser } from '../../store/action/actionUser';
 
 import './add-form-user.sass';
 
 function FormAddUser() {
-    const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [avatar, setImageContent] = useState('');
     const [username, setUsername] = useState('');
@@ -23,7 +19,6 @@ function FormAddUser() {
                 avatar,
             };
             resetFormFields();
-            dispatch(addUser(newUser));
             const response = await fetch('http://domer.tech:9999/users', {
                 method: 'POST',
                 headers: {
@@ -36,9 +31,9 @@ function FormAddUser() {
         }
     }
     const resetFormFields = () => {
-        setName("");
-        setImageContent("");
-        setUsername("");
+        setName('');
+        setImageContent('');
+        setUsername('');
     };
 
     const checkLink = (e) => {
