@@ -1,0 +1,49 @@
+$context: 16
+$maxWidth: 1440
+
+@mixin adaptiv-font($pcSize, $mobSize)
+    $addSize: $pcSize - $mobSize
+    $maxWidth: $maxWidth - 320
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}))
+
+.tweets
+    display: flex
+    flex-wrap: wrap-reverse
+    justify-content: space-evenly
+.card-header
+    background-color: #e3d9ca !important
+.card-body
+    background-color: #fff7ea !important
+.card-tweet
+    margin: 15px
+    width: 450px
+    flex-direction: row !important
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset
+    &__avatar
+        height: 50px
+        width: 50px
+    &__content
+        @include adaptiv-font(20, 13)
+        font-family: 'Kalam', cursive
+        
+.name
+    @include adaptiv-font(22, 15)
+    font-family: 'Amaranth', sans-serif
+    color: #111111
+
+.username
+    @include adaptiv-font(16, 12)
+    font-family: 'BenchNine', sans-serif 
+    letter-spacing: 1px  
+    color: #6e6e6e 
+.row 
+    display: flex
+    justify-content: space-between !important
+    margin-left: -40px !important
+    align-items: center
+
+.card-tweet__img-content
+    &:hover
+        transform: scale(1.2)
+.error
+    color: #f32727
