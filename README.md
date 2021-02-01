@@ -25,5 +25,5 @@
  Отримання усіх твітів: GET --- /tweets/
 
 
-[Результат](https://contactsbookcursor.netlify.app/)
+[Результат](https://unruffled-ride-78bad9.netlify.app/users-page)
  
