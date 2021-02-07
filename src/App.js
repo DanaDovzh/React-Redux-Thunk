@@ -6,22 +6,23 @@ import FormAddTweet from './components/AddTweet/FormAddTweet';
 import NavPage from './components/Nav/Nav';
 import UsersPage from './components/Users/UsersPage';
 import TweetsPage from './components/Tweets/TweetsPage';
+import { AppRouters } from './components/Nav/AppRouters';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 function App() {
-  return (
-    <Router>
-      <NavPage />
-      <Switch>
-        <Route path='/users-page' component={UsersPage} />
-        <Route path='/add-user' component={FormAddUser} />
-        <Route path='/tweets-page' component={TweetsPage} />
-        <Route path='/tweet-user' component={FormAddTweet} />
-      </Switch>
-    </Router>
-  );
+	return (
+		<Router>
+			<NavPage />
+			<Switch>
+				<Route path={AppRouters.userPage} component={UsersPage} />
+				<Route path={AppRouters.addUser} component={FormAddUser} />
+				<Route path={AppRouters.tweetsPage} component={TweetsPage} />
+				<Route path={AppRouters.tweetUser} component={FormAddTweet} />
+			</Switch>
+		</Router>
+	);
 }
 
 export default App;
